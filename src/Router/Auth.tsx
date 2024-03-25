@@ -44,9 +44,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setData(response.data);
             setError(false);
         } catch (error) {
-            //PASSO A PASSO PARA RENDERIZAR NO CELULAR
+            //PASSO A PASSO PARA RENDERIZAR NO CELULAR 
 
-            /*  setData(Images) descomente essa parte do código, e tire o comentário da importação */
+            /*  setData(Images) descomente essa parte do código, e tire o comentário da importação ;) */
 
             setError(true); //para visualização no telefone, mude para true
         } finally {
