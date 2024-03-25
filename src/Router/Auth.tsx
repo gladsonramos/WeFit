@@ -1,5 +1,6 @@
 import { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from "react";
 import axios from 'axios';
+/* import { Images } from "../Images"; */
 
 interface Movie {
     id: number;
@@ -9,7 +10,7 @@ interface Movie {
 }
 
 interface AuthContextType {
-    cart: Movie[]; // Tipo do estado do carrinho
+    cart: Movie[];
     setCart: Dispatch<SetStateAction<Movie[]>>; // Tipo da função setCart
     data: Movie[];
     loading: boolean;
@@ -35,47 +36,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [reload, setReload] = useState(false);
     const [data, setData] = useState<Movie[]>([]);
 
-    const Images = [
-
-        {
-            "id": 1,
-            "title": "Viúva Negra",
-            "price": 9.99,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/viuva-negra.png"
-        },
-        {
-            "id": 2,
-            "title": "Shang-chi",
-            "price": 30.99,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/shang-chi.png"
-        },
-        {
-            "id": 3,
-            "title": "Homem Aranha",
-            "price": 29.9,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/spider-man.png"
-        },
-        {
-            "id": 5,
-            "title": "Morbius",
-            "price": 1.5,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/morbius-1.png"
-        },
-        {
-            "id": 6,
-            "title": "Batman",
-            "price": 21.9,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/the-batman.png"
-        },
-        {
-            "id": 4,
-            "title": "Eternos",
-            "price": 17.9,
-            "image": "https://wefit-react-web-test.s3.amazonaws.com/eternals.png"
-        },
-    ]
-
-    // Função para chamar a API
     const fetchData = async () => {
         setReload(false);
         setLoading(true);
@@ -84,8 +44,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setData(response.data);
             setError(false);
         } catch (error) {
-            setData(Images)
-            setError(false);
+            //PASSO A PASSO PARA RENDERIZAR NO CELULAR
+
+            /*  setData(Images) descomente essa parte do código, e tire o comentário da importação */
+
+            setError(true); //para visualização no telefone, mude para true
         } finally {
             setLoading(false);
         }

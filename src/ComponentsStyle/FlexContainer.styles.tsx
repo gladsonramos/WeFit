@@ -29,7 +29,7 @@ export const ContainerSpace = styled.div`
 export const MooviesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define as colunas */
-  grid-gap: 16px; /* Espaçamento entre os itens */
+  grid-gap: 16px; 
   @media only screen and (max-width: 768px) {
     display: flex;
     flex-wrap: wrap;

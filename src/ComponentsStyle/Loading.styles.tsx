@@ -12,11 +12,11 @@ const LoadingAnimation = keyframes`
 `;
 
 export const LoadingSpinner = styled.div<LoadingProps>`
-  display: ${props => props.visible ? 'flex' : 'none'}; /* Define a visibilidade baseada na propriedade 'visible' */
+  display: ${props => props.visible ? 'flex' : 'none'}; 
   align-items: center;
   justify-content: center;
-  width: 100%; /* Para centralizar horizontalmente */
-  height: 100%; /* Para centralizar verticalmente */
+  width: 100%; 
+  height: 100%; 
 `;
 
 export const SpinnerImage = styled.img`

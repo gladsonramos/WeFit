@@ -44,7 +44,7 @@ export const HomeScreen = () => {
         setClickedButton((prevButtons: string[]) => [...prevButtons, item.id]);
       });
     }
-    setSearchResults(data); // Carrega todos os dados na primeira renderização
+    setSearchResults(data); 
     // eslint-disable-next-line
   }, [DataMyCart]);
 

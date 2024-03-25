@@ -9,15 +9,15 @@ const InputContainer = styled.div`
 
 // Estilizando o input
 export const SearchInput = styled.input`
-  padding: 16px 40px 16px 16px; /* Ajustando o espaçamento para acomodar o ícone */
+  padding: 16px 40px 16px 16px; 
   border-radius: 8px;
   font-size: 16px;
-  width: 100%; /* Ocupar toda a largura do contêiner pai */
-  box-sizing: border-box; /* Incluir padding na largura total */
-  background-color: white; /* Define o fundo do input como transparente */
-  border: none; /* Remover borda padrão */
+  width: 100%; 
+  box-sizing: border-box; 
+  background-color: white; 
+  border: none; 
   &:focus {
-    outline: 2px solid #009EDD; /* Cor da borda em foco */
+    outline: 2px solid #009EDD; 
   }
   &::placeholder {
     text-align: left;

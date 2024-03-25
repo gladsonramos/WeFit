@@ -8,14 +8,13 @@ interface ImageProps {
   mobile?: boolean;
 }
 
-// Componente estilizado para a imagem
 export const Image = styled.img`
-  height: auto; /* Altura ajustável de acordo com a largura */
+  height: auto; 
   cursor: pointer;
 `;
 
 export const ImageError = styled.img<ImageProps>`
-  height: auto; /* Altura ajustável de acordo com a largura */
+  height: auto; 
   content: url(${Error});
 
   @media only screen and (max-width: 768px) {
@@ -28,7 +27,7 @@ export const ImageError = styled.img<ImageProps>`
 `;
 
 export const ImageSucess = styled.img<ImageProps>`
-  height: auto; /* Altura ajustável de acordo com a largura */
+  height: auto; 
   content: url(${SucessCartDesktop});
 
   @media only screen and (max-width: 768px) {
