@@ -2,12 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import searchIcon from '../Assets/Search.png';
 
-// Estilizando o contêiner do input
+
 const InputContainer = styled.div`
   position: relative;
 `;
 
-// Estilizando o input
 export const SearchInput = styled.input`
   padding: 16px 40px 16px 16px; 
   border-radius: 8px;
@@ -26,18 +25,17 @@ export const SearchInput = styled.input`
   }
 `;
 
-// Estilizando o ícone de pesquisa
 const SearchIcon = styled.span`
   position: absolute;
   top: 50%;
   right: 16px;
   transform: translateY(-50%);
-  width: 24px; /* Largura do ícone */
-  height: 24px; /* Altura do ícone */
+  width: 24px; 
+  height: 24px; 
   background-image: url(${searchIcon});
   background-position: center;
   background-repeat: no-repeat;
-  cursor: pointer; /* Cursor ao passar por cima */
+  cursor: pointer; 
 `;
 
 const ClickableSearchInput = ({ onChange, onClick, onBlur, ...props }: any) => {

@@ -11,7 +11,7 @@ interface Movie {
 
 interface AuthContextType {
     cart: Movie[];
-    setCart: Dispatch<SetStateAction<Movie[]>>; // Tipo da função setCart
+    setCart: Dispatch<SetStateAction<Movie[]>>; 
     data: Movie[];
     loading: boolean;
     setLoading: Dispatch<SetStateAction<boolean>>;
