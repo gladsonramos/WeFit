@@ -44,14 +44,14 @@ export const HomeScreen = () => {
         setClickedButton((prevButtons: string[]) => [...prevButtons, item.id]);
       });
     }
-    setSearchResults(data); 
+    setSearchResults(data);
     // eslint-disable-next-line
   }, [DataMyCart]);
 
 
   const handleSearch = () => {
-    setVisible(true)
     setSearchResults([])
+    setVisible(true)
     setSearchInitiated(true);
     const results = data.filter((movie: Movie) =>
       movie.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -65,37 +65,37 @@ export const HomeScreen = () => {
 
   const handleAddToCart = (result: Movie) => {
     const existingItemIndex = cart.findIndex((item: CartItem) => item.id === result.id);
-  
+
     setClickedButton((prevButtons: string[]) => [...prevButtons, result.id]);
 
     if (existingItemIndex !== -1) {
-        setCart((prev: CartItem[]) =>
-            prev.map((item: CartItem, index: number) => {
-                if (index === existingItemIndex) {
-                    const newQuantity = item.quantity + 1;
-                    const subtotal = (item.price! * newQuantity).toFixed(2).replace('.', ','); 
-                    return { ...item, quantity: newQuantity, subtotal };
-                } else {
-                    return item;
-                }
-            })
-        );
-        setCartCount((prevCount: { [key: string]: number }) => ({
-            ...prevCount,
-            [result.id]: (prevCount[result.id] || 0) + 1
-        }));
+      setCart((prev: CartItem[]) =>
+        prev.map((item: CartItem, index: number) => {
+          if (index === existingItemIndex) {
+            const newQuantity = item.quantity + 1;
+            const subtotal = (item.price! * newQuantity).toFixed(2).replace('.', ',');
+            return { ...item, quantity: newQuantity, subtotal };
+          } else {
+            return item;
+          }
+        })
+      );
+      setCartCount((prevCount: { [key: string]: number }) => ({
+        ...prevCount,
+        [result.id]: (prevCount[result.id] || 0) + 1
+      }));
     } else {
-        // Se o item não existir no carrinho
-        const subtotal = result.price!.toFixed(2).replace('.', ','); 
-        setCart((prev: CartItem[]) => [...prev, { ...result, quantity: 1, subtotal }]);
-        setCartCount((prevCount: { [key: string]: number }) => ({
-            ...prevCount,
-            [result.id]: (prevCount[result.id] || 0) + 1
-        }));
+      // Se o item não existir no carrinho
+      const subtotal = result.price!.toFixed(2).replace('.', ',');
+      setCart((prev: CartItem[]) => [...prev, { ...result, quantity: 1, subtotal }]);
+      setCartCount((prevCount: { [key: string]: number }) => ({
+        ...prevCount,
+        [result.id]: (prevCount[result.id] || 0) + 1
+      }));
     }
-};
+  };
 
-  
+
 
   const navigateToCart = () => {
     navigate('/cart', { state: { cart: cart || [] } });
