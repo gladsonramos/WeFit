@@ -14,7 +14,7 @@ interface DisplayStructureProps {
 }
 
 const DisplayStructure: React.FC<DisplayStructureProps> = ({ onClick, children }) => {
-    const cartImage = require('../Assets/Ico.png');
+    const cartImage = require('../Assets/IcoCartPage.png');
     const { cart } = useContext<any>(AuthContext);
 
     return (
@@ -26,7 +26,7 @@ const DisplayStructure: React.FC<DisplayStructureProps> = ({ onClick, children }
                         <Title fontSize={"14px"} bold={600} hideOnMobile={true}>Meu carrinho</Title>
                         <Title fontSize={"12px"} bold={600} align='right' color='#999999'>{cart.length || 0} itens</Title>
                     </View>
-                    <Image onClick={onClick} src={cartImage} alt="Cart" />
+                    <Image  onClick={onClick} src={cartImage} alt="Cart" />
                 </FlexContainer>
             </Header>
             <Container>
