@@ -74,7 +74,7 @@ const MyCart = () => {
         navigate('/Sucess');
     };
 
-    const total = cartItems.reduce((accumulator: any, currentItem: any) => accumulator + parseFloat(currentItem.subtotal), 0);
+    const total = cartItems.reduce((accumulator: any, currentItem: any) => accumulator + currentItem.subtotal, "");
 
     return (
         <DisplayStructure onClick={handleClickHome}>
