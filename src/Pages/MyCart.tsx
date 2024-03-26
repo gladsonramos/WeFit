@@ -74,7 +74,17 @@ const MyCart = () => {
         navigate('/Sucess');
     };
 
-    const total = cartItems.reduce((accumulator: any, currentItem: any) => accumulator + currentItem.subtotal, "");
+    const total = cartItems.reduce((accumulator: number, currentItem: { subtotal: string; }) => {
+        const subtotalValue = parseFloat(currentItem.subtotal.replace(',', '.'));
+        if (!isNaN(subtotalValue)) {
+            return accumulator + subtotalValue;
+        } else {
+            return accumulator;
+        }
+    }, 0);
+
+    const formattedTotal = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    console.log(formattedTotal, 'form')
 
     return (
         <DisplayStructure onClick={handleClickHome}>
@@ -83,7 +93,7 @@ const MyCart = () => {
             ) : (
                 <Box padding={isMobile ? "16px" : "24px"}>
                     {isMobile ? (
-                        <MyTableMobile data={cartItems} onUpdateQuantity={onUpdateQuantity} removeItem={removeItem} total={total} Finish={Finish} />
+                        <MyTableMobile data={cartItems} onUpdateQuantity={onUpdateQuantity} removeItem={removeItem} total={formattedTotal} Finish={Finish} />
                     ) : (
                         <>
                             <MyTableDesktop data={cartItems} onUpdateQuantity={onUpdateQuantity} removeItem={removeItem} />
@@ -100,7 +110,7 @@ const MyCart = () => {
                                 </View>
                                 <FlexContainer>
                                     <Title color='#999999' fontSize='14px'>TOTAL</Title>
-                                    <Title color='#2F2E41' fontSize='24px'>R$ {total}</Title>
+                                    <Title color='#2F2E41' fontSize='24px'>{formattedTotal}</Title>
                                 </FlexContainer>
                             </ContainerSpace>
                         </>

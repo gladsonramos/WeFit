@@ -24,7 +24,7 @@ const MyTableMobile = ({ data, onUpdateQuantity, removeItem, total, Finish }: an
                                     <img style={{ width: '64px', height: '82px' }} src={item.image} alt={item.title} />
                                     <View style={{ flex: 1 }}>
                                         <ContainerSpace>
-                                            <Title align='left' color='#2F2E41' fontSize='14px'> {item.title} </Title>
+                                            <Title style={{ width: '102px' }} align='left' color='#2F2E41' fontSize='14px'> {item.title} </Title>
                                             <FlexContainer>
                                                 <Title align='left' color='#2F2E41' fontSize='16px'> R$ {item.price} </Title>
                                                 <Image src={Trash} onClick={() => removeItem(item.id)} />
@@ -50,7 +50,7 @@ const MyTableMobile = ({ data, onUpdateQuantity, removeItem, total, Finish }: an
             <Espacing />
             <ContainerSpace>
                 <Title color='#999999' fontSize='14px'>TOTAL</Title>
-                <Title color='#2F2E41' fontSize='24px'>R$ {total}</Title>
+                <Title color='#2F2E41' fontSize='24px'>{total}</Title>
             </ContainerSpace>
             <Espacing />
             <Button onClick={Finish}>

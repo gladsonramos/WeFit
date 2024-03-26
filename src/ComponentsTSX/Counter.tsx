@@ -22,6 +22,14 @@ const CounterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 59px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: 59px;
+  }
 `;
 
 const More = require('../Assets/More.png');
