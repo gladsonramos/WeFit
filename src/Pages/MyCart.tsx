@@ -84,8 +84,7 @@ const MyCart = () => {
     }, 0);
 
     const formattedTotal = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    console.log(formattedTotal, 'form')
-
+ 
     return (
         <DisplayStructure onClick={handleClickHome}>
             {cartItems.length === 0 ? (
