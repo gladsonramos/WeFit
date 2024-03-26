@@ -23,7 +23,7 @@ const MyCart = () => {
 
     const navigate = useNavigate();
     const handleClickHome = () => {
-        navigate('/', { state: { home: true , carts: cartItems } });
+        navigate('/', { state: { home: true, carts: cartItems } });
         setCart(cartItems)
     }
 
@@ -51,16 +51,18 @@ const MyCart = () => {
     const onUpdateQuantity = (itemId: string, newQuantity: number) => {
         const updatedCart = cartItems.map((item: any) => {
             if (item.id === itemId) {
+                const subtotal = (parseFloat(item.price) * newQuantity).toFixed(2).replace('.', ','); // Arredonda o subtotal para duas casas decimais
                 return {
                     ...item,
                     quantity: newQuantity,
-                    subtotal: parseFloat(item.price) * newQuantity
+                    subtotal: subtotal
                 };
             }
             return item;
         });
         setCartItems(updatedCart);
     };
+
 
     const removeItem = (itemId: string) => {
         const updatedCart = cartItems.filter((item: any) => item.id !== itemId);

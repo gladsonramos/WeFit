@@ -69,30 +69,32 @@ export const HomeScreen = () => {
     setClickedButton((prevButtons: string[]) => [...prevButtons, result.id]);
 
     if (existingItemIndex !== -1) {
-      setCart((prev: CartItem[]) =>
-        prev.map((item: CartItem, index: number) => {
-          if (index === existingItemIndex) {
-            const newQuantity = item.quantity + 1;
-            return { ...item, quantity: newQuantity, subtotal: item.price! * newQuantity };
-          } else {
-            return item;
-          }
-        })
-      );
-      setCartCount((prevCount: { [key: string]: number }) => ({
-        ...prevCount,
-        [result.id]: (prevCount[result.id] || 0) + 1
-      }));
+        setCart((prev: CartItem[]) =>
+            prev.map((item: CartItem, index: number) => {
+                if (index === existingItemIndex) {
+                    const newQuantity = item.quantity + 1;
+                    const subtotal = (item.price! * newQuantity).toFixed(2).replace('.', ','); // Formatando o subtotal
+                    return { ...item, quantity: newQuantity, subtotal };
+                } else {
+                    return item;
+                }
+            })
+        );
+        setCartCount((prevCount: { [key: string]: number }) => ({
+            ...prevCount,
+            [result.id]: (prevCount[result.id] || 0) + 1
+        }));
     } else {
-      // Se o item não existir no carrinho
-      const subtotal = result.price!;
-      setCart((prev: CartItem[]) => [...prev, { ...result, quantity: 1, subtotal }]);
-      setCartCount((prevCount: { [key: string]: number }) => ({
-        ...prevCount,
-        [result.id]: (prevCount[result.id] || 0) + 1
-      }));
+        // Se o item não existir no carrinho
+        const subtotal = result.price!.toFixed(2).replace('.', ','); // Formatando o subtotal
+        setCart((prev: CartItem[]) => [...prev, { ...result, quantity: 1, subtotal }]);
+        setCartCount((prevCount: { [key: string]: number }) => ({
+            ...prevCount,
+            [result.id]: (prevCount[result.id] || 0) + 1
+        }));
     }
-  };
+};
+
   
 
   const navigateToCart = () => {
