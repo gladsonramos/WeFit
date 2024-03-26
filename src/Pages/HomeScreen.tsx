@@ -73,7 +73,7 @@ export const HomeScreen = () => {
             prev.map((item: CartItem, index: number) => {
                 if (index === existingItemIndex) {
                     const newQuantity = item.quantity + 1;
-                    const subtotal = (item.price! * newQuantity).toFixed(2).replace('.', ','); // Formatando o subtotal
+                    const subtotal = (item.price! * newQuantity).toFixed(2).replace('.', ','); 
                     return { ...item, quantity: newQuantity, subtotal };
                 } else {
                     return item;
@@ -86,7 +86,7 @@ export const HomeScreen = () => {
         }));
     } else {
         // Se o item não existir no carrinho
-        const subtotal = result.price!.toFixed(2).replace('.', ','); // Formatando o subtotal
+        const subtotal = result.price!.toFixed(2).replace('.', ','); 
         setCart((prev: CartItem[]) => [...prev, { ...result, quantity: 1, subtotal }]);
         setCartCount((prevCount: { [key: string]: number }) => ({
             ...prevCount,
