@@ -1,6 +1,6 @@
 import { createContext, useState, ReactNode, Dispatch, SetStateAction, useEffect } from "react";
 import axios from 'axios';
-/* import { Images } from "../Images"; */
+import { Images } from "../Images";
 
 interface Movie {
     id: number;
@@ -11,7 +11,7 @@ interface Movie {
 
 interface AuthContextType {
     cart: Movie[];
-    setCart: Dispatch<SetStateAction<Movie[]>>; 
+    setCart: Dispatch<SetStateAction<Movie[]>>;
     data: Movie[];
     loading: boolean;
     setLoading: Dispatch<SetStateAction<boolean>>;
@@ -39,19 +39,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const fetchData = async () => {
         setReload(false);
         setLoading(true);
-        try {
-            const response = await axios.get<Movie[]>('http://localhost:3001/img');
-            setData(response.data);
-            setError(false);
-        } catch (error) {
-            //PASSO A PASSO PARA RENDERIZAR NO CELULAR 
+        /*   try {
+              const response = await axios.get<Movie[]>('http://localhost:3001/img');
+              setData(response.data);
+              setError(false);
+          } catch (error) {
+              //PASSO A PASSO PARA RENDERIZAR NO CELULAR  */
 
-            /*  setData(Images) descomente essa parte do código, e tire o comentário da importação ;) */
+        setData(Images)
 
-            setError(true); //para visualização no telefone, mude para true
-        } finally {
-            setLoading(false);
-        }
+        /* setError(true); */ //para visualização no telefone, mude para true
+        /*  } finally { */
+        setLoading(false);
+        /* } */
     };
 
     useEffect(() => {

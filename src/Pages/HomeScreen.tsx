@@ -21,7 +21,7 @@ interface CartItem extends Movie {
   quantity: number;
 }
 
-export const HomeScreen = () => {
+const HomeScreen = () => {
   const { cart, setCart, data, loading, error } = useContext<any>(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,6 +34,7 @@ export const HomeScreen = () => {
 
   const DataMyCart = (location.state as any)?.home;
 
+console.log(DataMyCart)
   useEffect(() => {
     if (DataMyCart) {
       location.state.carts.forEach((item: CartItem) => {
@@ -44,7 +45,8 @@ export const HomeScreen = () => {
         setClickedButton((prevButtons: string[]) => [...prevButtons, item.id]);
       });
     }
-    setSearchResults(data);
+    setSearchResults(data)
+
     // eslint-disable-next-line
   }, [DataMyCart]);
 
@@ -65,7 +67,6 @@ export const HomeScreen = () => {
 
   const handleAddToCart = (result: Movie) => {
     const existingItemIndex = cart.findIndex((item: CartItem) => item.id === result.id);
-
     setClickedButton((prevButtons: string[]) => [...prevButtons, result.id]);
 
     if (existingItemIndex !== -1) {

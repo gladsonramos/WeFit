@@ -8,6 +8,7 @@ import { Container } from '../ComponentsStyle/Container.styles';
 import { AuthContext } from "../Router/Auth";
 import { View } from '../ComponentsStyle/View.styled';
 
+
 interface DisplayStructureProps {
     onClick?: () => void;
     children: ReactNode;
@@ -26,7 +27,7 @@ const DisplayStructure: React.FC<DisplayStructureProps> = ({ onClick, children }
                         <Title fontSize={"14px"} bold={600} hideOnMobile={true}>Meu carrinho</Title>
                         <Title fontSize={"12px"} bold={600} align='right' color='#999999'>{cart.length || 0} itens</Title>
                     </View>
-                    <Image  onClick={onClick} src={cartImage} alt="Cart" />
+                    <Image onClick={onClick} src={cartImage} alt="Cart" />
                 </FlexContainer>
             </Header>
             <Container>

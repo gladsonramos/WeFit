@@ -3,7 +3,7 @@ import {
     Route,
     Routes,
 } from "react-router-dom"
-import { HomeScreen } from "../Pages/HomeScreen"
+import HomeScreen from "../Pages/HomeScreen"
 import MyCart from "../Pages/MyCart"
 import { AuthProvider } from "./Auth"
 import { SucessCart } from "../Pages/SucessCart"
